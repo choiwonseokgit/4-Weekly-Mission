@@ -1,6 +1,7 @@
-import deleteImg from "../images/delete.svg";
-import penImg from "../images/pen.svg";
-import shareImg from "../images/share.svg";
+import Image from "next/image";
+import deleteImg from "@/public/delete.svg";
+import penImg from "@/public/pen.svg";
+import shareImg from "@/public/share.svg";
 import styles from "./FolderOptions.module.css";
 import { MODALS } from "@/lib/const";
 //type
@@ -23,14 +24,14 @@ function FolderOptions({ folderName, folderId, handleModalClick }: Props) {
             className={styles.option}
             onClick={() => handleModalClick(share.type as keyof IsModalClicked)}
           >
-            <img src={shareImg} alt="share" />
+            <Image src={shareImg} alt="share" />
             <p className={styles.optionText}>공유</p>
           </div>
           <div
             className={styles.option}
             onClick={() => handleModalClick(edit.type as keyof IsModalClicked)}
           >
-            <img src={penImg} alt="pen" />
+            <Image src={penImg} alt="pen" />
             <p>이름 변경</p>
           </div>
           <div
@@ -39,7 +40,7 @@ function FolderOptions({ folderName, folderId, handleModalClick }: Props) {
               handleModalClick(deleteFolder.type as keyof IsModalClicked)
             }
           >
-            <img src={deleteImg} alt="delete" />
+            <Image src={deleteImg} alt="delete" />
             <p>삭제</p>
           </div>
         </div>

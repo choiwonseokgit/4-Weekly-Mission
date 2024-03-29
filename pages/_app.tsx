@@ -1,15 +1,20 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
 import Head from "next/head";
+import type { AppProps } from "next/app";
+import "@/styles/globals.css";
+import HeaderFrame from "@/components/HeaderFrame";
+import BottomNavBar from "@/components/BottomNavBar";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* TODO: AppFrame 여기다가 옮기면 됨 */}
       <Head>
         <title>Linkbrary</title>
       </Head>
-      <Component {...pageProps} />
+      <HeaderFrame />
+      <main>
+        <Component {...pageProps} />
+      </main>
+      <BottomNavBar />
     </>
   );
 }

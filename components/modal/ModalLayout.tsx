@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ReactNode, MouseEvent } from "react";
 import styles from "./ModalLayout.module.css";
-import close from "../images/close.svg";
+import close from "@/public/close.svg";
 
 interface Props {
   children: ReactNode;

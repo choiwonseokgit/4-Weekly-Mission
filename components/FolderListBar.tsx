@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./FolderListBar.module.css";
 import FolderButton from "./FolderButton";
 import FolderOptions from "./FolderOptions";
-import addImg from "../images/add.svg";
+import addImg from "@/public/add.svg";
 import AddFolderModal from "./modal/AddFolderModal";
 import EditModal from "./modal/EditModal";
 import { MODALS } from "@/lib/const";

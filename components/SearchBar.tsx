@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import Image from "next/image";
 
 import Search from "@/public/Search.svg";
 import Close from "@/public/close.svg";
@@ -14,7 +15,7 @@ function SearchBar({ searchVal, onChange, handleClickClose }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.inputContainer}>
-        <img src={Search} alt="Search" />
+        <Image src={Search} alt="Search" />
         <input
           value={searchVal}
           onChange={onChange}
@@ -23,7 +24,7 @@ function SearchBar({ searchVal, onChange, handleClickClose }: Props) {
           placeholder="링크를 검색해 보세요"
         />
       </div>
-      <img
+      <Image
         className={styles.close}
         onClick={handleClickClose}
         src={Close}

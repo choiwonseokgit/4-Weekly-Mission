@@ -2,7 +2,7 @@ import { useState, ChangeEvent } from "react";
 import Image from "next/image";
 
 import styles from "./AddLinkBar.module.css";
-import link from "../images/link.svg";
+import link from "@/public/link.svg";
 import AddToFolderModal from "./modal/AddToFolderModal";
 
 function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {

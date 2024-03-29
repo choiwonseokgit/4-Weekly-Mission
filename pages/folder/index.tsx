@@ -20,7 +20,7 @@ function Folder() {
   );
 
   const targetRef = useRef<HTMLDivElement>(null);
-  const [observe, unobserve, isScrolled] = useIntersectionObserver();
+  const [observe, isScrolled] = useIntersectionObserver();
 
   const getFolderList = async () => {
     try {
