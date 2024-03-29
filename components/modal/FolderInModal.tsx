@@ -1,5 +1,7 @@
+import Image from "next/image";
+
 import styles from "./AddToFolderModal.module.css";
-import checkImg from "../../images/check.png";
+import checkImg from "@/public/check.png";
 //types
 import { FolderList } from "../../types/commonTypes";
 
@@ -20,7 +22,7 @@ function FolderInModal({ folder, isClicked, onClickFolder }: Props) {
           <span className={folderNameClassName}>{folder.name}</span>
           <span className={styles.linkCount}>{folder.link.count}개 링크</span>
         </div>
-        {isClicked && <img src={checkImg} alt="checkImg" />}
+        {isClicked && <Image src={checkImg} alt="checkImg" />}
       </button>
     </>
   );

@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 
-import Search from "../images/Search.svg";
-import Close from "../images/close.svg";
+import Search from "@/public/Search.svg";
+import Close from "@/public/close.svg";
 import styles from "./SearchBar.module.css";
 
 interface Props {

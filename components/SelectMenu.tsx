@@ -1,7 +1,7 @@
 import { MouseEvent } from "react";
 
 import styles from "./SelectMenu.module.css";
-import { MODALS } from "../modal/modals";
+import { MODALS } from "@/lib/const";
 
 interface Props {
   handleClickModal: (type: "deleteLink" | "addToFolder") => void;

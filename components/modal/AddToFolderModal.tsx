@@ -1,8 +1,8 @@
-import ModalLayout from "../ModalLayout";
-import { MODALS } from "../modals";
+import ModalLayout from "./ModalLayout";
+import { MODALS } from "@/lib/const";
 import styles from "./AddToFolderModal.module.css";
 import { useState, useEffect } from "react";
-import { getFolderListData } from "../../api/api";
+import { getFolderListData } from "@/lib/api";
 import FolderInModal from "./FolderInModal";
 
 //types

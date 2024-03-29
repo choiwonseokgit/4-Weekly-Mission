@@ -1,8 +1,8 @@
 import { useState, MouseEvent } from "react";
 import { dateDiffCalc, dateFormatter } from "@/lib/datecalc";
 import iconEmptyLogo from "../images/emptylogo.svg";
-import kebab from "../images/kebab.svg";
-import star from "../images/star.svg";
+import kebab from "@/public/kebab.svg";
+import star from "@/public/star.svg";
 import styles from "./Card.module.css";
 import SelectMenu from "./SelectMenu";
 import DeleteLinkModal from "./modal/DeleteLinkModal";
