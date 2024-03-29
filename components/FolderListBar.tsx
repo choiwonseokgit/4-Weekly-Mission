@@ -1,14 +1,15 @@
+import { useState, useMemo } from "react";
+import Image from "next/image";
 import styles from "./FolderListBar.module.css";
 import FolderButton from "./FolderButton";
-import addImg from "../images/add.svg";
-import { useState, useMemo } from "react";
 import FolderOptions from "./FolderOptions";
-import AddFolderModal from "../modal/AddFolderModal/AddFolderModal";
-import EditModal from "../modal/EditModal/EditModal";
-import { MODALS } from "../modal/modals";
-import DeleteFolderModal from "../modal/DeleteFolderModal/DeleteFolderModal";
-import ShareModal from "../modal/ShareModal/ShareModal";
-import { copyClipBoard } from "../util/copyClipBoard";
+import addImg from "../images/add.svg";
+import AddFolderModal from "./modal/AddFolderModal";
+import EditModal from "./modal/EditModal";
+import { MODALS } from "@/lib/const";
+import DeleteFolderModal from "./modal/DeleteFolderModal";
+import ShareModal from "./modal/ShareModal";
+import { copyClipBoard } from "@/lib/copyClipBoard";
 //type
 import { FolderList } from "../types/commonTypes";
 
@@ -101,7 +102,7 @@ function FolderListBar({ folderList, onClick }: Props) {
           }
         >
           <div className={styles.addFolderText}>폴더 추가</div>
-          <img className={styles.addImg} src={addImg} alt="addImg" />
+          <Image className={styles.addImg} src={addImg} alt="addImg" />
         </div>
       </div>
       <div className={styles.folderOptionsContainer}>
