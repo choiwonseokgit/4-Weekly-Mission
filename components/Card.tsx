@@ -56,12 +56,12 @@ function Card({ link }: { link: Link | LinksData }) {
           <div className={styles.description}>{link.description}</div>
           <div>{formatDate}</div>
         </div>
-        {isKebabClicked ? (
+        {isKebabClicked && (
           <SelectMenu
             onClickKebab={onClickKebab}
             handleClickModal={handleClickModal}
           />
-        ) : null}
+        )}
       </div>
       {currCardModal === "deleteLink" && (
         <DeleteLinkModal url={link.url} handleClickModal={handleClickModal} />
