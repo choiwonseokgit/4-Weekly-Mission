@@ -4,23 +4,19 @@ import Image from "next/image";
 import styles from "./AddLinkBar.module.css";
 import link from "@/public/link.svg";
 import AddToFolderModal from "./modal/AddToFolderModal";
+//type
+import { MODAL } from "@/types/commonTypes";
 
 function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {
   const [linkValue, setLinkValue] = useState<string>("");
-  const [isModalClicked, setIsModalClicked] = useState<{
-    addToFolder: boolean;
-    deleteLink?: boolean;
-  }>({
-    addToFolder: false,
-  });
+  const [currCardModal, setCurrCardModal] = useState<MODAL>(null);
 
   const onChangeLinkValue = (e: ChangeEvent<HTMLInputElement>) => {
     setLinkValue(e.target.value);
   };
 
-  const handleClickModal = (type: "addToFolder" | "deleteLink") => {
-    const value = isModalClicked[type];
-    setIsModalClicked({ ...isModalClicked, [type]: !value });
+  const handleClickModal = (value: MODAL) => {
+    setCurrCardModal(value);
   };
 
   const makeEmptyValue = () => {
@@ -48,10 +44,9 @@ function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {
             추가하기
           </button>
         </div>
-        {isModalClicked.addToFolder && (
+        {currCardModal === "addToFolder" && (
           <AddToFolderModal
             url={linkValue}
-            isModalClicked={isModalClicked}
             handleClickModal={handleClickModal}
             linkValue={linkValue}
             makeEmptyValue={makeEmptyValue}

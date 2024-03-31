@@ -6,46 +6,23 @@ import FolderOptions from "./FolderOptions";
 import addImg from "@/public/add.svg";
 import AddFolderModal from "./modal/AddFolderModal";
 import EditModal from "./modal/EditModal";
-import { MODALS } from "@/lib/const";
+import { WHOLE_BUTTON } from "@/lib/const";
 import DeleteFolderModal from "./modal/DeleteFolderModal";
 import ShareModal from "./modal/ShareModal";
 import { copyClipBoard } from "@/lib/copyClipBoard";
 //type
-import { FolderList } from "../types/commonTypes";
-
-const WHOLE_BUTTON = {
-  id: 1,
-  created_at: "2023-06-04T20:59:39.293024+00:00",
-  name: "전체",
-  user_id: 1,
-  favorite: true,
-  link: {
-    count: 0,
-  },
-};
+import { FolderList, MODAL } from "../types/commonTypes";
 
 interface Props {
   folderList: FolderList[];
   onClick: (id: number) => void;
 }
 
-export interface IsModalClicked {
-  add: boolean;
-  edit: boolean;
-  deleteFolder: boolean;
-  share: boolean;
-}
-
 function FolderListBar({ folderList, onClick }: Props) {
   const [currentFolderName, setCurrentFolderName] = useState<string>("");
   const [currentFolderId, setCurrentFolderId] = useState<number>(1);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
-  const [isModalClicked, setIsModalClicked] = useState<IsModalClicked>({
-    add: false,
-    edit: false,
-    deleteFolder: false,
-    share: false,
-  });
+  const [currOpenModal, setCurrOpenModal] = useState<MODAL>(null);
 
   const getLinksbyId = (id: number) => {
     onClick(id);
@@ -65,9 +42,8 @@ function FolderListBar({ folderList, onClick }: Props) {
     setCurrentFolderId(id);
   };
 
-  const handleModalClick = (type: keyof IsModalClicked) => {
-    const value = isModalClicked[type];
-    setIsModalClicked({ ...isModalClicked, [type]: !value });
+  const handleModalClick = (value: MODAL) => {
+    setCurrOpenModal(value);
   };
 
   const makeShareLink = (userId: number | null, folderId: number) => {
@@ -97,9 +73,7 @@ function FolderListBar({ folderList, onClick }: Props) {
           className={
             currentFolderId === 1 ? styles.invisible : styles.addFolderContainer
           }
-          onClick={() =>
-            handleModalClick(MODALS.addFolder.type as keyof IsModalClicked)
-          }
+          onClick={() => handleModalClick("add")}
         >
           <div className={styles.addFolderText}>폴더 추가</div>
           <Image className={styles.addImg} src={addImg} alt="addImg" />
@@ -112,25 +86,28 @@ function FolderListBar({ folderList, onClick }: Props) {
           handleModalClick={handleModalClick}
         />
       </div>
-      <AddFolderModal
-        isModalClicked={isModalClicked}
-        handleModalClick={handleModalClick}
-      />
-      <EditModal
-        isModalClicked={isModalClicked}
-        handleModalClick={handleModalClick}
-      />
-      <DeleteFolderModal
-        folderName={currentFolderName}
-        isModalClicked={isModalClicked}
-        handleModalClick={handleModalClick}
-      />
-      <ShareModal
-        folderName={currentFolderName}
-        isModalClicked={isModalClicked}
-        handleModalClick={handleModalClick}
-        makeShareLink={() => makeShareLink(currentUserId, currentFolderId)}
-      />
+      {currOpenModal === "add" && (
+        <AddFolderModal handleModalClick={handleModalClick} />
+      )}
+
+      {currOpenModal === "edit" && (
+        <EditModal handleModalClick={handleModalClick} />
+      )}
+
+      {currOpenModal === "deleteFolder" && (
+        <DeleteFolderModal
+          folderName={currentFolderName}
+          handleModalClick={handleModalClick}
+        />
+      )}
+
+      {currOpenModal === "share" && (
+        <ShareModal
+          folderName={currentFolderName}
+          handleModalClick={handleModalClick}
+          makeShareLink={() => makeShareLink(currentUserId, currentFolderId)}
+        />
+      )}
     </>
   );
 }

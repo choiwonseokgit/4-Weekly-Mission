@@ -6,21 +6,12 @@ import close from "@/public/close.svg";
 interface Props {
   children: ReactNode;
   title: string;
-  isModalClicked: boolean;
   onClickCloseButton: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
-function ModalLayout({
-  children,
-  title,
-  isModalClicked,
-  onClickCloseButton,
-}: Props) {
-  const backgroundClassName = isModalClicked
-    ? styles.background
-    : styles.invisible;
+function ModalLayout({ children, title, onClickCloseButton }: Props) {
   return (
-    <div className={backgroundClassName}>
+    <div className={styles.background}>
       <div className={styles.container}>
         <div className={styles.modalTitle}>{title}</div>
         <div className={styles.closeButton} onClick={onClickCloseButton}>

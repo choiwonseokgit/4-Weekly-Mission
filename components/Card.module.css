@@ -12,6 +12,10 @@
   right: 10px;
 }
 
+.kebab {
+  cursor: pointer;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   .container {
     position: relative;

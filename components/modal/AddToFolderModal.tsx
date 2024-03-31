@@ -6,22 +6,17 @@ import { getFolderListData } from "@/lib/api";
 import FolderInModal from "./FolderInModal";
 
 //types
-import { FolderList } from "../../types/commonTypes";
+import { FolderList, MODAL } from "../../types/commonTypes";
 
 interface Props {
   url: string;
-  isModalClicked: {
-    deleteLink?: boolean;
-    addToFolder: boolean;
-  };
-  handleClickModal: (type: "deleteLink" | "addToFolder") => void;
+  handleClickModal: (value: MODAL) => void;
   linkValue?: any;
   makeEmptyValue?: any;
 }
 
 function AddToFolderModal({
   url,
-  isModalClicked,
   handleClickModal,
   linkValue,
   makeEmptyValue,
@@ -31,7 +26,7 @@ function AddToFolderModal({
   const { addToFolder } = MODALS;
 
   const onClickCloseButton = () => {
-    handleClickModal("addToFolder");
+    handleClickModal(null);
     if (linkValue) makeEmptyValue();
   };
 
@@ -57,7 +52,6 @@ function AddToFolderModal({
   return (
     <ModalLayout
       title={addToFolder.title}
-      isModalClicked={isModalClicked.addToFolder}
       onClickCloseButton={onClickCloseButton}
     >
       <div className={styles.url}>{url}</div>

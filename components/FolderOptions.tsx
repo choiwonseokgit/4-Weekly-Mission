@@ -5,12 +5,12 @@ import shareImg from "@/public/share.svg";
 import styles from "./FolderOptions.module.css";
 import { MODALS } from "@/lib/const";
 //type
-import { IsModalClicked } from "./FolderListBar";
+import { MODAL } from "@/types/commonTypes";
 
 interface Props {
   folderName: string;
   folderId: number;
-  handleModalClick: (type: keyof IsModalClicked) => void;
+  handleModalClick: (value: MODAL) => void;
 }
 
 function FolderOptions({ folderName, folderId, handleModalClick }: Props) {
@@ -25,23 +25,21 @@ function FolderOptions({ folderName, folderId, handleModalClick }: Props) {
         <div className={styles.optionContainer}>
           <div
             className={styles.option}
-            onClick={() => handleModalClick(share.type as keyof IsModalClicked)}
+            onClick={() => handleModalClick("share")}
           >
             <Image src={shareImg} alt="share" />
             <p className={styles.optionText}>공유</p>
           </div>
           <div
             className={styles.option}
-            onClick={() => handleModalClick(edit.type as keyof IsModalClicked)}
+            onClick={() => handleModalClick("edit")}
           >
             <Image src={penImg} alt="pen" />
             <p>이름 변경</p>
           </div>
           <div
             className={styles.option}
-            onClick={() =>
-              handleModalClick(deleteFolder.type as keyof IsModalClicked)
-            }
+            onClick={() => handleModalClick("deleteFolder")}
           >
             <Image src={deleteImg} alt="delete" />
             <p>삭제</p>

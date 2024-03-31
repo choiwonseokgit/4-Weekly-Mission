@@ -9,17 +9,12 @@ import SelectMenu from "./SelectMenu";
 import DeleteLinkModal from "./modal/DeleteLinkModal";
 import AddToFolderModal from "./modal/AddToFolderModal";
 //type
-import { Link, LinksData } from "../types/commonTypes";
+import { Link, LinksData, MODAL } from "../types/commonTypes";
 
 function Card({ link }: { link: Link | LinksData }) {
   const [isKebabClicked, setIsKebabClicked] = useState(false);
-  const [isModalClicked, setIsModalClicked] = useState<{
-    deleteLink: boolean;
-    addToFolder: boolean;
-  }>({
-    deleteLink: false,
-    addToFolder: false,
-  });
+  const [currCardModal, setCurrCardModal] = useState<MODAL>(null);
+
   const cardImage =
     (link as Link).imageSource || (link as LinksData)["image_source"]
       ? (link as Link).imageSource || (link as LinksData)["image_source"]
@@ -39,9 +34,8 @@ function Card({ link }: { link: Link | LinksData }) {
     e.stopPropagation();
   };
 
-  const handleClickModal = (type: "deleteLink" | "addToFolder") => {
-    const value = isModalClicked[type];
-    setIsModalClicked({ ...isModalClicked, [type]: !value });
+  const handleClickModal = (value: MODAL) => {
+    setCurrCardModal(value);
   };
 
   return (
@@ -55,7 +49,7 @@ function Card({ link }: { link: Link | LinksData }) {
         <div className={styles.textContainer}>
           <div className={styles.dateDiffContainer}>
             <div>{dateDiff}</div>
-            <div onClick={onClickKebab}>
+            <div className={styles.kebab} onClick={onClickKebab}>
               <Image src={kebab} alt="kebab" />
             </div>
           </div>
@@ -69,16 +63,12 @@ function Card({ link }: { link: Link | LinksData }) {
           />
         ) : null}
       </div>
-      <DeleteLinkModal
-        url={link.url}
-        isModalClicked={isModalClicked}
-        handleClickModal={handleClickModal}
-      />
-      <AddToFolderModal
-        url={link.url}
-        isModalClicked={isModalClicked}
-        handleClickModal={handleClickModal}
-      />
+      {currCardModal === "deleteLink" && (
+        <DeleteLinkModal url={link.url} handleClickModal={handleClickModal} />
+      )}
+      {currCardModal === "addToFolder" && (
+        <AddToFolderModal url={link.url} handleClickModal={handleClickModal} />
+      )}
     </>
   );
 }

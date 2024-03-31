@@ -1,16 +1,15 @@
 import { MouseEvent } from "react";
 
 import styles from "./SelectMenu.module.css";
-import { MODALS } from "@/lib/const";
+//type
+import { MODAL } from "@/types/commonTypes";
 
 interface Props {
-  handleClickModal: (type: "deleteLink" | "addToFolder") => void;
   onClickKebab: (e: MouseEvent) => void;
+  handleClickModal: (value: MODAL) => void;
 }
 
-function SelectMenu({ handleClickModal, onClickKebab }: Props) {
-  const { deleteLink, addToFolder } = MODALS;
-
+function SelectMenu({ onClickKebab, handleClickModal }: Props) {
   const onClickKebabDelete = (e: MouseEvent) => {
     onClickKebab(e);
     handleClickModal("deleteLink");

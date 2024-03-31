@@ -32,4 +32,15 @@ export const MODALS = {
   },
 };
 
+export const WHOLE_BUTTON = {
+  id: 1,
+  created_at: "2023-06-04T20:59:39.293024+00:00",
+  name: "전체",
+  user_id: 1,
+  favorite: true,
+  link: {
+    count: 0,
+  },
+};
+
 export const STICKY_PATH = ["/shared"];

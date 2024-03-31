@@ -6,33 +6,23 @@ import kakaoImg from "@/public/KakaoSmall.svg";
 import facebookImg from "@/public/FacebookPng.png";
 import linkImg from "@/public/link.svg";
 //type
-import { IsModalClicked } from "../FolderListBar";
+import { MODAL } from "@/types/commonTypes";
 
 interface Props {
   folderName: string;
-  isModalClicked: IsModalClicked;
-  handleModalClick: (type: keyof IsModalClicked) => void;
+  handleModalClick: (type: MODAL) => void;
   makeShareLink: () => void;
 }
 
-function ShareModal({
-  folderName,
-  isModalClicked,
-  handleModalClick,
-  makeShareLink,
-}: Props) {
+function ShareModal({ folderName, handleModalClick, makeShareLink }: Props) {
   const { share } = MODALS;
 
   const onClickCloseButton = () => {
-    handleModalClick(share.type as keyof IsModalClicked);
+    handleModalClick(null);
   };
 
   return (
-    <ModalLayout
-      title={share.title}
-      isModalClicked={isModalClicked.share}
-      onClickCloseButton={onClickCloseButton}
-    >
+    <ModalLayout title={share.title} onClickCloseButton={onClickCloseButton}>
       <div className={styles.folderName}>{folderName}</div>
       <div className={styles.container}>
         <button className={styles.button}>

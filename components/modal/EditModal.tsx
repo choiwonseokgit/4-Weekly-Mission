@@ -2,26 +2,21 @@ import ModalLayout from "./ModalLayout";
 import { MODALS } from "@/lib/const";
 import styles from "./EditModal.module.css";
 //type
-import { IsModalClicked } from "../../components/FolderListBar";
+import { MODAL } from "@/types/commonTypes";
 
 interface Props {
-  isModalClicked: IsModalClicked;
-  handleModalClick: (type: keyof IsModalClicked) => void;
+  handleModalClick: (type: MODAL) => void;
 }
 
-function EditModal({ isModalClicked, handleModalClick }: Props) {
+function EditModal({ handleModalClick }: Props) {
   const { edit } = MODALS;
 
   const onClickCloseButton = () => {
-    handleModalClick(edit.type as keyof IsModalClicked);
+    handleModalClick(null);
   };
 
   return (
-    <ModalLayout
-      title={edit.title}
-      isModalClicked={isModalClicked.edit}
-      onClickCloseButton={onClickCloseButton}
-    >
+    <ModalLayout title={edit.title} onClickCloseButton={onClickCloseButton}>
       <input
         className={styles.input}
         type="text"

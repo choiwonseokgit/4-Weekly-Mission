@@ -56,3 +56,12 @@ export interface MediaLink {
   link: string;
   logo: string;
 }
+
+export type MODAL =
+  | "add"
+  | "edit"
+  | "deleteFolder"
+  | "share"
+  | "addToFolder"
+  | "deleteLink"
+  | null;

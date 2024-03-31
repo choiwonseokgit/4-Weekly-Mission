@@ -4,30 +4,24 @@ import ModalLayout from "./ModalLayout";
 import { MODALS } from "@/lib/const";
 import styles from "./DeleteFolderModal.module.css";
 //type
-import { IsModalClicked } from "../../components/FolderListBar";
+import { MODAL } from "@/types/commonTypes";
 
 interface Props {
   folderName: string;
-  isModalClicked: IsModalClicked;
-  handleModalClick: (type: keyof IsModalClicked) => void;
+  handleModalClick: (type: MODAL) => void;
 }
 
-function DeleteFolderModal({
-  folderName,
-  isModalClicked,
-  handleModalClick,
-}: Props) {
+function DeleteFolderModal({ folderName, handleModalClick }: Props) {
   const { deleteFolder } = MODALS;
 
   const onClickCloseButton = (e: MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-    handleModalClick(deleteFolder.type as keyof IsModalClicked);
+    handleModalClick(null);
   };
 
   return (
     <ModalLayout
       title={deleteFolder.title}
-      isModalClicked={isModalClicked.deleteFolder}
       onClickCloseButton={onClickCloseButton}
     >
       <div className={styles.folderName}>{folderName}</div>
