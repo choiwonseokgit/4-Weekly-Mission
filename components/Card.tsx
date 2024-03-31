@@ -12,7 +12,7 @@ import AddToFolderModal from "./modal/AddToFolderModal";
 import { Link, LinksData } from "../types/commonTypes";
 
 function Card({ link }: { link: Link | LinksData }) {
-  const [isKebabClicked, setIsKebabClicked] = useState<boolean>(false);
+  const [isKebabClicked, setIsKebabClicked] = useState(false);
   const [isModalClicked, setIsModalClicked] = useState<{
     deleteLink: boolean;
     addToFolder: boolean;

@@ -33,7 +33,7 @@ function Folder() {
     }
   };
 
-  const getLinks = async (folderId: { folderId?: string }) => {
+  const getLinks = async (folderId: number) => {
     try {
       const linksData = await getFolderLinksData(folderId);
       const { data } = linksData;
@@ -46,7 +46,7 @@ function Folder() {
 
   useEffect(() => {
     getFolderList();
-    getLinks({ folderId: "1" });
+    getLinks(1);
   }, []);
 
   useEffect(() => {

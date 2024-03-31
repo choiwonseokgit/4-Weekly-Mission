@@ -31,3 +31,5 @@ export const MODALS = {
     buttonName: "추가하기",
   },
 };
+
+export const STICKY_PATH = ["/shared"];

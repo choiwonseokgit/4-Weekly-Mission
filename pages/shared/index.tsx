@@ -13,9 +13,9 @@ function Shared() {
     linksData
   );
 
-  const getFolderLinkData = async (options: { path?: string }) => {
+  const getFolderLinkData = async (path: string) => {
     try {
-      const newFolder = await getData(options);
+      const newFolder = await getData(path);
       const { folder } = newFolder;
       const { links } = folder;
       setLinksData(links);
@@ -26,7 +26,7 @@ function Shared() {
   };
 
   useEffect(() => {
-    getFolderLinkData({ path: "folder" });
+    getFolderLinkData("folder");
   }, []);
 
   return (

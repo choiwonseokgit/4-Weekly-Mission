@@ -10,8 +10,7 @@ const fetchToGetData = async (path: string): Promise<FetchResponse> => {
   return body;
 };
 
-//todo: path로 prop으로 받아서 경로 나눠주기
-export const getData = async ({ path = "" }): Promise<FetchResponse> => {
+export const getData = async (path: string): Promise<FetchResponse> => {
   const detailPath = path && `${URL}/api/sample/${path}`;
   return fetchToGetData(detailPath);
 };
@@ -21,10 +20,10 @@ export const getFolderListData = async (): Promise<FetchResponse> => {
   return fetchToGetData(detailPath);
 };
 
-export const getFolderLinksData = async ({
-  folderId = "",
-}): Promise<FetchResponse> => {
+export const getFolderLinksData = async (
+  folderId: number
+): Promise<FetchResponse> => {
   const path = `${URL}/api/users/4/links`;
-  const detailPath = folderId === "1" ? path : `${path}?folderId=${folderId}`;
+  const detailPath = folderId === 1 ? path : `${path}?folderId=${folderId}`;
   return fetchToGetData(detailPath);
 };

@@ -4,6 +4,7 @@ import { getData } from "@/lib/api";
 import TopNavBar from "./TopNavBar";
 import AddLinkBar from "./AddLinkBar";
 import UserProfile from "./UserProfile";
+import { STICKY_PATH } from "@/lib/const";
 //types
 import { ProfileData, FolderData } from "../types/commonTypes";
 
@@ -12,9 +13,9 @@ function HeaderFrame() {
   const [profileData, setProfileData] = useState<ProfileData | {}>({});
   const [folderData, setFolderData] = useState<FolderData | {}>({});
 
-  const getProfileData = async (options: { path: string }) => {
+  const getProfileData = async (path: string) => {
     try {
-      const newProfile = await getData(options);
+      const newProfile = await getData(path);
       setProfileData(newProfile);
     } catch (err) {
       console.error(err);
@@ -22,9 +23,9 @@ function HeaderFrame() {
     }
   };
 
-  const getFolderProfileData = async (options: { path: string }) => {
+  const getFolderProfileData = async (path: string) => {
     try {
-      const newFolder = await getData(options);
+      const newFolder = await getData(path);
       const { folder } = newFolder;
       setFolderData(folder);
     } catch (err) {
@@ -34,15 +35,15 @@ function HeaderFrame() {
   };
 
   useEffect(() => {
-    getProfileData({ path: "user" });
-    getFolderProfileData({ path: "folder" });
+    getProfileData("user");
+    getFolderProfileData("folder");
   }, []);
 
   return (
     <>
       <TopNavBar
         profileData={profileData}
-        isSticky={pathname === "/shared"} //TODO: ['/shared', ...] 다른 페이지가 왔을때도 적용이 되게 끔 배열 상수를 만들어서 적용하기
+        isSticky={STICKY_PATH.includes(pathname)}
       />
       {pathname === "/folder" && <AddLinkBar isAtBottom={false} />}
       {pathname === "/shared" && <UserProfile folderData={folderData} />}

@@ -26,7 +26,7 @@ const WHOLE_BUTTON = {
 
 interface Props {
   folderList: FolderList[];
-  onClick: (folderId: { folderId?: string }) => Promise<void>;
+  onClick: (id: number) => void;
 }
 
 export interface IsModalClicked {
@@ -47,7 +47,7 @@ function FolderListBar({ folderList, onClick }: Props) {
     share: false,
   });
 
-  const getLinksbyId = (id: { folderId: string }) => {
+  const getLinksbyId = (id: number) => {
     onClick(id);
   };
 
@@ -58,7 +58,7 @@ function FolderListBar({ folderList, onClick }: Props) {
     setCurrentFolderName(folderName);
     setCurrentFolderId(folderId);
     setCurrentUserId(userId);
-    getLinksbyId({ folderId: `${folderId}` });
+    getLinksbyId(folderId);
   };
 
   const changeClickedId = (id: number) => {

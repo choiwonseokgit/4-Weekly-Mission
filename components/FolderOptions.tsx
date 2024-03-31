@@ -15,7 +15,10 @@ interface Props {
 
 function FolderOptions({ folderName, folderId, handleModalClick }: Props) {
   const { edit, deleteFolder, share } = MODALS;
-  return folderName ? (
+
+  if (!folderName) return null;
+
+  return (
     <>
       <div className={styles.folderName}>{folderName}</div>
       {folderId !== 1 && (
@@ -46,7 +49,7 @@ function FolderOptions({ folderName, folderId, handleModalClick }: Props) {
         </div>
       )}
     </>
-  ) : null;
+  );
 }
 
 export default FolderOptions;
