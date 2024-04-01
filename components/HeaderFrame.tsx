@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 import { getData } from "@/lib/api";
-import TopNavBar from "./TopNavBar";
-import AddLinkBar from "./AddLinkBar";
-import UserProfile from "./UserProfile";
 import { STICKY_PATH } from "@/lib/const";
-//types
+import AddLinkBar from "./AddLinkBar";
+import TopNavBar from "./TopNavBar";
+import UserProfile from "./UserProfile";
 import { ProfileData, FolderData } from "../types/commonTypes";
 
 function HeaderFrame() {
