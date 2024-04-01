@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
 //types
-import { LinksData, Link } from "../types/commonTypes";
+import { LinksData, Link } from "@/types/commonTypes";
 
 export function useSearchBar(
   initialValue: string,
