@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { MODALS } from "@/lib/const";
 import deleteImg from "@/public/delete.svg";
 import penImg from "@/public/pen.svg";
 import shareImg from "@/public/share.svg";
@@ -13,8 +12,6 @@ interface Props {
 }
 
 function FolderOptions({ folderName, folderId, handleModalClick }: Props) {
-  const { edit, deleteFolder, share } = MODALS;
-
   if (!folderName) return null;
 
   return (
