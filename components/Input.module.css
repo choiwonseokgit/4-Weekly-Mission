@@ -1,0 +1,41 @@
+.container {
+  width: 350px;
+}
+
+.innerContainer {
+  width: 350px;
+  position: relative;
+}
+
+.input {
+  border: none;
+  display: flex;
+  width: 350px;
+  padding: 18px 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  background: #fff;
+}
+
+.input:focus {
+  border: 1px solid #6d6afe;
+}
+
+.img {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.error {
+  border: 1px solid #ff5b56;
+}
+
+.errorMessage {
+  margin-top: 5px;
+  color: #ff5b56;
+}

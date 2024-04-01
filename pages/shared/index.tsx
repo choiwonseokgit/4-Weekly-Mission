@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { getData } from "@/lib/api";
 import CardBox from "@/components/CardBox";
 import SearchBar from "@/components/SearchBar";
+import { getData } from "@/lib/api";
 import { useSearchBar } from "@/src/hooks/useSearchBar";
-//types
 import { Link } from "@/types/commonTypes";
 
 function Shared() {
