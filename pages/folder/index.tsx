@@ -9,9 +9,27 @@ import useIntersectionObserver from "@/src/hooks/useIntersectionObserver";
 import { useSearchBar } from "@/src/hooks/useSearchBar";
 import { FolderList, LinksData } from "@/types/commonTypes";
 
-function Folder() {
-  const [folderList, setFolderList] = useState<FolderList[]>([]);
-  const [linksData, setLinksData] = useState<LinksData[]>([]);
+export async function getStaticProps() {
+  const folderListData = await getFolderListData();
+  const folderList = folderListData.data;
+  const linksData = await getFolderLinksData(1);
+  const links = linksData.data;
+
+  return {
+    props: {
+      folderList,
+      links,
+    },
+  };
+}
+
+interface Props {
+  folderList: FolderList[];
+  links: LinksData[];
+}
+
+function Folder({ folderList, links }: Props) {
+  const [linksData, setLinksData] = useState(links);
   const [searchVal, handleChange, filterdData, handleClickClose] = useSearchBar(
     "",
     linksData
@@ -19,17 +37,6 @@ function Folder() {
 
   const targetRef = useRef<HTMLDivElement>(null);
   const [observe, isScrolled] = useIntersectionObserver();
-
-  const getFolderList = async () => {
-    try {
-      const folderListData = await getFolderListData();
-      const { data } = folderListData;
-      setFolderList(data);
-    } catch (err) {
-      console.error(err);
-      setFolderList([]);
-    }
-  };
 
   const getLinks = async (folderId: number) => {
     try {
@@ -41,11 +48,6 @@ function Folder() {
       setLinksData([]);
     }
   };
-
-  useEffect(() => {
-    getFolderList();
-    getLinks(1);
-  }, []);
 
   useEffect(() => {
     observe(targetRef.current as HTMLDivElement);

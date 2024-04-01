@@ -1,32 +1,26 @@
-import { useEffect, useState } from "react";
 import CardBox from "@/components/CardBox";
 import SearchBar from "@/components/SearchBar";
 import { getData } from "@/lib/api";
 import { useSearchBar } from "@/src/hooks/useSearchBar";
 import { Link } from "@/types/commonTypes";
 
-function Shared() {
-  const [linksData, setLinksData] = useState<Link[]>([]);
+export async function getStaticProps() {
+  const newFolder = await getData("folder");
+  const { folder } = newFolder;
+  const { links } = folder;
+
+  return {
+    props: {
+      links,
+    },
+  };
+}
+
+function Shared({ links }: { links: Link[] }) {
   const [searchVal, handleChange, filterdData, handleClickClose] = useSearchBar(
     "",
-    linksData
+    links
   );
-
-  const getFolderLinkData = async (path: string) => {
-    try {
-      const newFolder = await getData(path);
-      const { folder } = newFolder;
-      const { links } = folder;
-      setLinksData(links);
-    } catch (err) {
-      console.error(err);
-      setLinksData([]);
-    }
-  };
-
-  useEffect(() => {
-    getFolderLinkData("folder");
-  }, []);
 
   return (
     <section>
