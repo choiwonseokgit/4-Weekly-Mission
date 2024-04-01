@@ -9,7 +9,13 @@ function UserProfile({ folderData }: { folderData: FolderData | {} }) {
   return (
     <div className={styles.container}>
       {profileImageSource && (
-        <img className={styles.img} src={profileImageSource} alt="" />
+        <Image
+          width={256}
+          height={256}
+          className={styles.img}
+          src={profileImageSource}
+          alt=""
+        />
       )}
       {profileName && <div className={styles.name}>{profileName}</div>}
       <div className={styles.folderName}>{(folderData as FolderData).name}</div>

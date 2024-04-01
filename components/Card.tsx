@@ -18,6 +18,11 @@ function Card({ link }: { link: Link | LinksData }) {
     (link as Link).imageSource || (link as LinksData)["image_source"]
       ? (link as Link).imageSource || (link as LinksData)["image_source"]
       : iconEmptyLogo;
+
+  const absoluteCardImageUrl = cardImage.toString().startsWith("//", "/")
+    ? `https:${cardImage}`
+    : cardImage;
+
   const dateOfCard = new Date(
     (link as Link).createdAt || (link as LinksData)["created_at"]
   );
@@ -41,8 +46,13 @@ function Card({ link }: { link: Link | LinksData }) {
     <>
       <div className={styles.container} onClick={onClickCard}>
         <div className={styles.imgContainer}>
-          {/* TODO 넥스트 이미지로 바꾸기 오류가 있음 */}
-          <img className={styles.img} src={cardImage} alt="이미지"></img>
+          <Image
+            width={256}
+            height={128}
+            className={styles.img}
+            src={absoluteCardImageUrl}
+            alt="이미지"
+          ></Image>
         </div>
         <Image className={styles.star} src={star} alt="star" />
         <div className={styles.textContainer}>
