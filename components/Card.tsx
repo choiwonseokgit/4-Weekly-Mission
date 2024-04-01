@@ -1,15 +1,14 @@
-import { useState, MouseEvent } from "react";
 import Image from "next/image";
+import { useState, MouseEvent } from "react";
 import { dateDiffCalc, dateFormatter } from "@/lib/datecalc";
 import iconEmptyLogo from "@/public/emptylogo.svg";
 import kebab from "@/public/kebab.svg";
 import star from "@/public/star.svg";
-import styles from "./Card.module.css";
-import SelectMenu from "./SelectMenu";
-import DeleteLinkModal from "./modal/DeleteLinkModal";
 import AddToFolderModal from "./modal/AddToFolderModal";
-//type
+import DeleteLinkModal from "./modal/DeleteLinkModal";
+import SelectMenu from "./SelectMenu";
 import { Link, LinksData, MODAL } from "../types/commonTypes";
+import styles from "./Card.module.css";
 
 function Card({ link }: { link: Link | LinksData }) {
   const [isKebabClicked, setIsKebabClicked] = useState(false);

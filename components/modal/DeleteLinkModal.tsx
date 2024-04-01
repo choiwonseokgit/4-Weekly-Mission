@@ -1,10 +1,8 @@
 import { MouseEvent } from "react";
-
-import ModalLayout from "./ModalLayout";
 import { MODALS } from "@/lib/const";
-import styles from "./DeleteLinkModal.module.css";
-//types
 import { MODAL } from "@/types/commonTypes";
+import ModalLayout from "./ModalLayout";
+import styles from "./DeleteLinkModal.module.css";
 
 interface Props {
   url: string;

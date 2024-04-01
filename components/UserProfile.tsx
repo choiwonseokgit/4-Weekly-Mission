@@ -1,7 +1,6 @@
 import Image from "next/image";
-import styles from "./UserProfile.module.css";
-//types
 import { FolderData } from "@/types/commonTypes";
+import styles from "./UserProfile.module.css";
 
 function UserProfile({ folderData }: { folderData: FolderData | {} }) {
   const owner = folderData && (folderData as FolderData).owner;

@@ -1,10 +1,8 @@
 import { MouseEvent } from "react";
-
-import ModalLayout from "./ModalLayout";
 import { MODALS } from "@/lib/const";
-import styles from "./DeleteFolderModal.module.css";
-//type
 import { MODAL } from "@/types/commonTypes";
+import ModalLayout from "./ModalLayout";
+import styles from "./DeleteFolderModal.module.css";
 
 interface Props {
   folderName: string;

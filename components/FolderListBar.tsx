@@ -1,17 +1,16 @@
-import { useState, useMemo } from "react";
 import Image from "next/image";
-import styles from "./FolderListBar.module.css";
+import { useState, useMemo } from "react";
+import { WHOLE_BUTTON } from "@/lib/const";
+import { copyClipBoard } from "@/lib/copyClipBoard";
+import addImg from "@/public/add.svg";
 import FolderButton from "./FolderButton";
 import FolderOptions from "./FolderOptions";
-import addImg from "@/public/add.svg";
 import AddFolderModal from "./modal/AddFolderModal";
-import EditModal from "./modal/EditModal";
-import { WHOLE_BUTTON } from "@/lib/const";
 import DeleteFolderModal from "./modal/DeleteFolderModal";
+import EditModal from "./modal/EditModal";
 import ShareModal from "./modal/ShareModal";
-import { copyClipBoard } from "@/lib/copyClipBoard";
-//type
 import { FolderList, MODAL } from "../types/commonTypes";
+import styles from "./FolderListBar.module.css";
 
 interface Props {
   folderList: FolderList[];

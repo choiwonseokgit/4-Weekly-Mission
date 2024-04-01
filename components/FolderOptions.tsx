@@ -1,11 +1,10 @@
 import Image from "next/image";
+import { MODALS } from "@/lib/const";
 import deleteImg from "@/public/delete.svg";
 import penImg from "@/public/pen.svg";
 import shareImg from "@/public/share.svg";
-import styles from "./FolderOptions.module.css";
-import { MODALS } from "@/lib/const";
-//type
 import { MODAL } from "@/types/commonTypes";
+import styles from "./FolderOptions.module.css";
 
 interface Props {
   folderName: string;

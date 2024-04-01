@@ -1,7 +1,6 @@
-import styles from "./CardBox.module.css";
+import { LinksData, Link } from "@/types/commonTypes";
 import Card from "./Card";
-//type
-import { LinksData, Link } from "../types/commonTypes";
+import styles from "./CardBox.module.css";
 
 function CardBox({ linksData }: { linksData: LinksData[] | Link[] }) {
   return (

@@ -1,12 +1,11 @@
 import Image from "next/image";
-import ModalLayout from "./ModalLayout";
 import { MODALS } from "@/lib/const";
-import styles from "./ShareModal.module.css";
-import kakaoImg from "@/public/KakaoSmall.svg";
 import facebookImg from "@/public/FacebookPng.png";
+import kakaoImg from "@/public/KakaoSmall.svg";
 import linkImg from "@/public/link.svg";
-//type
 import { MODAL } from "@/types/commonTypes";
+import ModalLayout from "./ModalLayout";
+import styles from "./ShareModal.module.css";
 
 interface Props {
   folderName: string;

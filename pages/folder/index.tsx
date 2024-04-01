@@ -1,14 +1,12 @@
 import { useEffect, useState, useRef } from "react";
-
-import { getFolderListData, getFolderLinksData } from "@/lib/api";
-import CardBox from "@/components/CardBox";
-import SearchBar from "@/components/SearchBar";
-import FolderListBar from "@/components/FolderListBar";
-import EmptyFolder from "@/components/EmptyFolder";
-import { useSearchBar } from "@/src/hooks/useSearchBar";
-import useIntersectionObserver from "@/src/hooks/useIntersectionObserver";
 import AddLinkBar from "@/components/AddLinkBar";
-//types
+import CardBox from "@/components/CardBox";
+import EmptyFolder from "@/components/EmptyFolder";
+import FolderListBar from "@/components/FolderListBar";
+import SearchBar from "@/components/SearchBar";
+import { getFolderListData, getFolderLinksData } from "@/lib/api";
+import useIntersectionObserver from "@/src/hooks/useIntersectionObserver";
+import { useSearchBar } from "@/src/hooks/useSearchBar";
 import { FolderList, LinksData } from "@/types/commonTypes";
 
 function Folder() {

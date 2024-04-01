@@ -1,8 +1,7 @@
-import { ChangeEvent } from "react";
 import Image from "next/image";
-
-import Search from "@/public/Search.svg";
+import { ChangeEvent } from "react";
 import Close from "@/public/close.svg";
+import Search from "@/public/Search.svg";
 import styles from "./SearchBar.module.css";
 
 interface Props {

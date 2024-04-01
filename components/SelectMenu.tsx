@@ -1,8 +1,6 @@
 import { MouseEvent } from "react";
-
-import styles from "./SelectMenu.module.css";
-//type
 import { MODAL } from "@/types/commonTypes";
+import styles from "./SelectMenu.module.css";
 
 interface Props {
   onClickKebab: (e: MouseEvent) => void;

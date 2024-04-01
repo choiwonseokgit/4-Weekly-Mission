@@ -1,4 +1,3 @@
-//types
 import Image from "next/image";
 import { MediaLink } from "../types/commonTypes";
 

@@ -1,11 +1,10 @@
-import styles from "./BottomNavBar.module.css";
-import Icon from "./Icon";
 import facebooklogo from "@/public/facebook.svg";
+import instagramlogo from "@/public/instagram.svg";
 import twitterlogo from "@/public/twitter.svg";
 import youtubelogo from "@/public/youtube.svg";
-import instagramlogo from "@/public/instagram.svg";
-//types
 import { MediaLink } from "@/types/commonTypes";
+import Icon from "./Icon";
+import styles from "./BottomNavBar.module.css";
 
 const MEDIA_LINK: MediaLink[] = [
   {

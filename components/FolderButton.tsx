@@ -1,6 +1,5 @@
-import styles from "./FolderButton.module.css";
-//type
 import { FolderList } from "@/types/commonTypes";
+import styles from "./FolderButton.module.css";
 
 interface Props {
   folder: FolderList;

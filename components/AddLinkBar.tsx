@@ -1,11 +1,9 @@
-import { useState, ChangeEvent } from "react";
 import Image from "next/image";
-
-import styles from "./AddLinkBar.module.css";
+import { useState, ChangeEvent } from "react";
 import link from "@/public/link.svg";
-import AddToFolderModal from "./modal/AddToFolderModal";
-//type
 import { MODAL } from "@/types/commonTypes";
+import AddToFolderModal from "./modal/AddToFolderModal";
+import styles from "./AddLinkBar.module.css";
 
 function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {
   const [linkValue, setLinkValue] = useState<string>("");

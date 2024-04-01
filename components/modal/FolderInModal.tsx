@@ -1,9 +1,7 @@
 import Image from "next/image";
-
-import styles from "./AddToFolderModal.module.css";
 import checkImg from "@/public/check.png";
-//types
 import { FolderList } from "../../types/commonTypes";
+import styles from "./AddToFolderModal.module.css";
 
 interface Props {
   folder: FolderList;

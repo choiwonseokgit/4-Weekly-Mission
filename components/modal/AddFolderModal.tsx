@@ -1,8 +1,7 @@
-import ModalLayout from "./ModalLayout";
 import { MODALS } from "@/lib/const";
-import styles from "./AddFolderModal.module.css";
-//type
 import { MODAL } from "@/types/commonTypes";
+import ModalLayout from "./ModalLayout";
+import styles from "./AddFolderModal.module.css";
 
 interface Props {
   handleModalClick: (type: MODAL) => void;

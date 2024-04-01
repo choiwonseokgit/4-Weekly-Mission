@@ -1,8 +1,8 @@
-import logo from "@/public/logo.svg";
-import styles from "./TopNavBar.module.css";
-//types
-import { ProfileData } from "../types/commonTypes";
 import Image from "next/image";
+import Link from "next/link";
+import logo from "@/public/logo.svg";
+import { ProfileData } from "../types/commonTypes";
+import styles from "./TopNavBar.module.css";
 
 interface Props {
   profileData: ProfileData | {};
@@ -17,9 +17,9 @@ function TopNavBar({ profileData, isSticky }: Props) {
   return (
     <div className={containerClassName}>
       <div className={styles.logoContainer}>
-        <a href="/shared">
+        <Link href="/shared">
           <Image src={logo} alt="logo" />
-        </a>
+        </Link>
       </div>
       <div className={styles.profileContainer}>
         {(profileData as ProfileData).email ? (
