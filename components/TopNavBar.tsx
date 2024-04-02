@@ -25,8 +25,8 @@ function TopNavBar({ profileData, isSticky }: Props) {
         {(profileData as ProfileData).email ? (
           <>
             <Image
-              width={128}
-              height={128}
+              width={28}
+              height={28}
               className={styles.img}
               src={(profileData as ProfileData).profileImageSource}
               alt="이미지"

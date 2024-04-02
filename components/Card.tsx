@@ -13,6 +13,7 @@ import styles from "./Card.module.css";
 function Card({ link }: { link: Link | LinksData }) {
   const [isKebabClicked, setIsKebabClicked] = useState(false);
   const [currCardModal, setCurrCardModal] = useState<MODAL>(null);
+  const [isImgError, setIsImgError] = useState(false);
 
   const cardImage =
     (link as Link).imageSource || (link as LinksData)["image_source"]
@@ -47,12 +48,13 @@ function Card({ link }: { link: Link | LinksData }) {
       <div className={styles.container} onClick={onClickCard}>
         <div className={styles.imgContainer}>
           <Image
-            width={256}
-            height={128}
+            width={340}
+            height={240}
             className={styles.img}
-            src={absoluteCardImageUrl}
+            src={isImgError ? iconEmptyLogo : absoluteCardImageUrl}
             alt="이미지"
-          ></Image>
+            onError={() => setIsImgError(true)}
+          />
         </div>
         <Image className={styles.star} src={star} alt="star" />
         <div className={styles.textContainer}>

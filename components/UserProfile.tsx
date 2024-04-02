@@ -10,8 +10,8 @@ function UserProfile({ folderData }: { folderData: FolderData | {} }) {
     <div className={styles.container}>
       {profileImageSource && (
         <Image
-          width={256}
-          height={256}
+          width={60}
+          height={60}
           className={styles.img}
           src={profileImageSource}
           alt=""
