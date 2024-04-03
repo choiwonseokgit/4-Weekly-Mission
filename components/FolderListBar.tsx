@@ -9,7 +9,7 @@ import AddFolderModal from "./modal/AddFolderModal";
 import DeleteFolderModal from "./modal/DeleteFolderModal";
 import EditModal from "./modal/EditModal";
 import ShareModal from "./modal/ShareModal";
-import { FolderList, MODAL } from "../types/commonTypes";
+import { FolderList, Modal } from "../types/commonTypes";
 import styles from "./FolderListBar.module.css";
 
 interface Props {
@@ -21,7 +21,7 @@ function FolderListBar({ folderList, onClick }: Props) {
   const [currentFolderName, setCurrentFolderName] = useState<string>("");
   const [currentFolderId, setCurrentFolderId] = useState<number>(1);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
-  const [currOpenModal, setCurrOpenModal] = useState<MODAL>(null);
+  const [currOpenModal, setCurrOpenModal] = useState<Modal>(null);
 
   const getLinksbyId = (id: number) => {
     onClick(id);
@@ -41,7 +41,7 @@ function FolderListBar({ folderList, onClick }: Props) {
     setCurrentFolderId(id);
   };
 
-  const handleModalClick = (value: MODAL) => {
+  const handleModalClick = (value: Modal) => {
     setCurrOpenModal(value);
   };
 

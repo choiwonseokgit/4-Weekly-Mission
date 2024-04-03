@@ -57,7 +57,7 @@ export interface MediaLink {
   logo: string;
 }
 
-export type MODAL =
+export type Modal =
   | "add"
   | "edit"
   | "deleteFolder"

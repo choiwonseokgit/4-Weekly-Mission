@@ -1,12 +1,12 @@
 import { MouseEvent } from "react";
 import { MODALS } from "@/lib/const";
-import { MODAL } from "@/types/commonTypes";
+import { Modal } from "@/types/commonTypes";
 import ModalLayout from "./ModalLayout";
 import styles from "./DeleteLinkModal.module.css";
 
 interface Props {
   url: string;
-  handleClickModal: (value: MODAL) => void;
+  handleClickModal: (value: Modal) => void;
 }
 
 function DeleteLinkModal({ url, handleClickModal }: Props) {

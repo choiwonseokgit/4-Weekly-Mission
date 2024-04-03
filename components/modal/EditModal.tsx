@@ -1,10 +1,10 @@
 import { MODALS } from "@/lib/const";
-import { MODAL } from "@/types/commonTypes";
+import { Modal } from "@/types/commonTypes";
 import ModalLayout from "./ModalLayout";
 import styles from "./EditModal.module.css";
 
 interface Props {
-  handleModalClick: (type: MODAL) => void;
+  handleModalClick: (type: Modal) => void;
 }
 
 function EditModal({ handleModalClick }: Props) {

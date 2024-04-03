@@ -3,12 +3,12 @@ import { getFolderListData } from "@/lib/api";
 import { MODALS } from "@/lib/const";
 import FolderInModal from "./FolderInModal";
 import ModalLayout from "./ModalLayout";
-import { FolderList, MODAL } from "../../types/commonTypes";
+import { FolderList, Modal } from "../../types/commonTypes";
 import styles from "./AddToFolderModal.module.css";
 
 interface Props {
   url: string;
-  handleClickModal: (value: MODAL) => void;
+  handleClickModal: (value: Modal) => void;
   linkValue?: any;
   makeEmptyValue?: any;
 }

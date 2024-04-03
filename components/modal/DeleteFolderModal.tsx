@@ -1,12 +1,12 @@
 import { MouseEvent } from "react";
 import { MODALS } from "@/lib/const";
-import { MODAL } from "@/types/commonTypes";
+import { Modal } from "@/types/commonTypes";
 import ModalLayout from "./ModalLayout";
 import styles from "./DeleteFolderModal.module.css";
 
 interface Props {
   folderName: string;
-  handleModalClick: (type: MODAL) => void;
+  handleModalClick: (type: Modal) => void;
 }
 
 function DeleteFolderModal({ folderName, handleModalClick }: Props) {

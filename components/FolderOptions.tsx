@@ -2,13 +2,13 @@ import Image from "next/image";
 import deleteImg from "@/public/delete.svg";
 import penImg from "@/public/pen.svg";
 import shareImg from "@/public/share.svg";
-import { MODAL } from "@/types/commonTypes";
+import { Modal } from "@/types/commonTypes";
 import styles from "./FolderOptions.module.css";
 
 interface Props {
   folderName: string;
   folderId: number;
-  handleModalClick: (value: MODAL) => void;
+  handleModalClick: (value: Modal) => void;
 }
 
 function FolderOptions({ folderName, folderId, handleModalClick }: Props) {

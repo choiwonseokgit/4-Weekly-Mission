@@ -7,12 +7,12 @@ import star from "@/public/star.svg";
 import AddToFolderModal from "./modal/AddToFolderModal";
 import DeleteLinkModal from "./modal/DeleteLinkModal";
 import SelectMenu from "./SelectMenu";
-import { Link, LinksData, MODAL } from "../types/commonTypes";
+import { Link, LinksData, Modal } from "../types/commonTypes";
 import styles from "./Card.module.css";
 
 function Card({ link }: { link: Link | LinksData }) {
   const [isKebabClicked, setIsKebabClicked] = useState(false);
-  const [currCardModal, setCurrCardModal] = useState<MODAL>(null);
+  const [currCardModal, setCurrCardModal] = useState<Modal>(null);
   const [isImgError, setIsImgError] = useState(false);
 
   const cardImage =
@@ -39,7 +39,7 @@ function Card({ link }: { link: Link | LinksData }) {
     e.stopPropagation();
   };
 
-  const handleClickModal = (value: MODAL) => {
+  const handleClickModal = (value: Modal) => {
     setCurrCardModal(value);
   };
 

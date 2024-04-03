@@ -1,19 +1,19 @@
 import Image from "next/image";
 import { useState, ChangeEvent } from "react";
 import link from "@/public/link.svg";
-import { MODAL } from "@/types/commonTypes";
+import { Modal } from "@/types/commonTypes";
 import AddToFolderModal from "./modal/AddToFolderModal";
 import styles from "./AddLinkBar.module.css";
 
 function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {
   const [linkValue, setLinkValue] = useState<string>("");
-  const [currCardModal, setCurrCardModal] = useState<MODAL>(null);
+  const [currCardModal, setCurrCardModal] = useState<Modal>(null);
 
   const onChangeLinkValue = (e: ChangeEvent<HTMLInputElement>) => {
     setLinkValue(e.target.value);
   };
 
-  const handleClickModal = (value: MODAL) => {
+  const handleClickModal = (value: Modal) => {
     setCurrCardModal(value);
   };
 

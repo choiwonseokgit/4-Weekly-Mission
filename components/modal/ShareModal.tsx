@@ -3,13 +3,13 @@ import { MODALS } from "@/lib/const";
 import facebookImg from "@/public/FacebookPng.png";
 import kakaoImg from "@/public/KakaoSmall.svg";
 import linkImg from "@/public/link.svg";
-import { MODAL } from "@/types/commonTypes";
+import { Modal } from "@/types/commonTypes";
 import ModalLayout from "./ModalLayout";
 import styles from "./ShareModal.module.css";
 
 interface Props {
   folderName: string;
-  handleModalClick: (type: MODAL) => void;
+  handleModalClick: (type: Modal) => void;
   makeShareLink: () => void;
 }
 
