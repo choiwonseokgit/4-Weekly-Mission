@@ -9,8 +9,8 @@ import styles from "./AddToFolderModal.module.css";
 interface Props {
   url: string;
   handleClickModal: (value: Modal) => void;
-  linkValue?: any;
-  makeEmptyValue?: any;
+  linkValue?: string;
+  makeEmptyValue?: () => void;
 }
 
 function AddToFolderModal({
@@ -25,7 +25,7 @@ function AddToFolderModal({
 
   const onClickCloseButton = () => {
     handleClickModal(null);
-    if (linkValue) makeEmptyValue();
+    if (linkValue) makeEmptyValue?.();
   };
 
   const getFolderList = async () => {
