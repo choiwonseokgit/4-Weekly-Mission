@@ -72,3 +72,29 @@ export const SHARE_MODAL_BUTTON: ShareModalButtonType[] = [
   },
 ];
 
+export const MEDIA_LINK: MediaLink[] = [
+  {
+    id: 1,
+    type: "facebook",
+    link: "https://www.facebook.com/",
+    logo: facebooklogo,
+  },
+  {
+    id: 2,
+    type: "twitter",
+    link: "https://twitter.com/",
+    logo: twitterlogo,
+  },
+  {
+    id: 3,
+    type: "youtube",
+    link: "https://www.youtube.com/",
+    logo: youtubelogo,
+  },
+  {
+    id: 4,
+    type: "instgram",
+    link: "https://www.instagram.com/",
+    logo: instagramlogo,
+  },
+];
