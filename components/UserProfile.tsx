@@ -9,8 +9,8 @@ interface Props {
 function UserProfile({ folderData }: Props) {
   if (Object.keys(folderData).length === 0) return null;
 
-  const owner = (folderData as FolderData).owner;
-  const { profileImageSource, name } = owner;
+  const folder = folderData as FolderData;
+  const { profileImageSource, name: userName } = folder.owner;
 
   return (
     <div className={styles.container}>
@@ -21,8 +21,8 @@ function UserProfile({ folderData }: Props) {
         src={profileImageSource}
         alt="프로필이미지"
       />
-      <div className={styles.name}>{name}</div>
-      <div className={styles.folderName}>{(folderData as FolderData).name}</div>
+      <div className={styles.name}>{userName}</div>
+      <div className={styles.folderName}>{folder.name}</div>
     </div>
   );
 }
