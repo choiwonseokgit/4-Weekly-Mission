@@ -1,3 +1,12 @@
+import facebooklogo from "@/public/facebook.svg";
+import facebookImg from "@/public/FacebookPng.png";
+import instagramlogo from "@/public/instagram.svg";
+import kakaoImg from "@/public/KakaoSmall.svg";
+import linkImg from "@/public/link.svg";
+import twitterlogo from "@/public/twitter.svg";
+import youtubelogo from "@/public/youtube.svg";
+import { ShareModalButtonType, MediaLink } from "@/types/commonTypes";
+
 export const MODALS = {
   addFolder: {
     type: "add",
@@ -44,3 +53,22 @@ export const WHOLE_BUTTON = {
 };
 
 export const STICKY_PATH = ["/shared"];
+
+export const SHARE_MODAL_BUTTON: ShareModalButtonType[] = [
+  {
+    tag: "kakao",
+    description: "카카오톡",
+    img: kakaoImg,
+  },
+  {
+    tag: "facebook",
+    description: "페이스북",
+    img: facebookImg,
+  },
+  {
+    tag: "link",
+    description: "링크 복사",
+    img: linkImg,
+  },
+];
+

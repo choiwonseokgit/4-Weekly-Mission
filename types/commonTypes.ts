@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export interface FolderList {
   created_at: string;
   favorite: boolean;
@@ -65,3 +67,10 @@ export type Modal =
   | "addToFolder"
   | "deleteLink"
   | null;
+
+export interface ShareModalButtonType {
+  tag: "kakao" | "facebook" | "link";
+  description: "카카오톡" | "페이스북" | "링크 복사";
+  img: StaticImageData;
+  onClick?: () => void;
+}
