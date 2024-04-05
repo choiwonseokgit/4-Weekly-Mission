@@ -6,14 +6,14 @@ import styles from "./Input.module.css";
 
 function Input() {
   const [isError, setIsError] = useState(false);
-  const [isEyeOn, setIsEyeOn] = useState(false);
+  const [isPasswordType, setIsPasswordType] = useState(false);
 
   const inputClassName = isError
     ? `${styles.input} ${styles.error}`
     : styles.input;
 
   const handleEyeClick = () => {
-    setIsEyeOn(!isEyeOn);
+    setIsPasswordType(!isPasswordType);
   };
 
   return (
@@ -21,12 +21,12 @@ function Input() {
       <div className={styles.innerContainer}>
         <input
           className={inputClassName}
-          type={isEyeOn ? "text" : "password"}
+          type={isPasswordType ? "text" : "password"}
           placeholder="내용 입력"
         />
         <Image
           className={styles.img}
-          src={isEyeOn ? eyeOn : eyeOff}
+          src={isPasswordType ? eyeOn : eyeOff}
           onClick={handleEyeClick}
           alt="eye-toggle"
         />

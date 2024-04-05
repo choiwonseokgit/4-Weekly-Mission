@@ -56,7 +56,7 @@ function Folder({ folderList, links }: Props) {
   return (
     <>
       <section>
-        <div ref={targetRef}></div>
+        <div ref={targetRef} />
         <SearchBar
           searchVal={searchVal}
           onChange={handleChange}
@@ -77,7 +77,7 @@ function Folder({ folderList, links }: Props) {
           <EmptyFolder />
         )}
       </section>
-      {!isScrolled && <AddLinkBar isAtBottom={true} />}
+      {!isScrolled && <AddLinkBar isAtBottom />}
     </>
   );
 }

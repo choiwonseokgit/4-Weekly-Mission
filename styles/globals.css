@@ -62,20 +62,6 @@ footer {
   padding-top: 60px;
 }
 
-.searchDiv,
-.searchVal {
-  color: #9fa6b2;
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.2px;
-}
-
-.searchVal {
-  color: #373740;
-}
-
 @media (min-width: 375px) and (max-width: 767px) {
   section {
     width: 350px;

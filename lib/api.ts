@@ -11,7 +11,7 @@ const fetchToGetData = async (path: string): Promise<FetchResponse> => {
 };
 
 export const getData = async (path: string): Promise<FetchResponse> => {
-  const detailPath = path && `${URL}/api/sample/${path}`;
+  const detailPath = `${URL}/api/sample/${path}`;
   return fetchToGetData(detailPath);
 };
 
