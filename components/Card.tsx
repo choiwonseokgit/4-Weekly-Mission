@@ -10,7 +10,11 @@ import SelectMenu from "./SelectMenu";
 import { Link, LinksData, Modal } from "../types/commonTypes";
 import styles from "./Card.module.css";
 
-function Card({ link }: { link: Link | LinksData }) {
+interface Props {
+  link: Link | LinksData;
+}
+
+function Card({ link }: Props) {
   const [isKebabClicked, setIsKebabClicked] = useState(false);
   const [currCardModal, setCurrCardModal] = useState<Modal>(null);
   const [isImgError, setIsImgError] = useState(false);
@@ -41,6 +45,15 @@ function Card({ link }: { link: Link | LinksData }) {
 
   const handleClickModal = (value: Modal) => {
     setCurrCardModal(value);
+  };
+
+  const CARD_MODAL = {
+    addToFolder: (
+      <AddToFolderModal url={link.url} handleClickModal={handleClickModal} />
+    ),
+    deleteLink: (
+      <DeleteLinkModal url={link.url} handleClickModal={handleClickModal} />
+    ),
   };
 
   return (
@@ -74,12 +87,7 @@ function Card({ link }: { link: Link | LinksData }) {
           />
         )}
       </div>
-      {currCardModal === "deleteLink" && (
-        <DeleteLinkModal url={link.url} handleClickModal={handleClickModal} />
-      )}
-      {currCardModal === "addToFolder" && (
-        <AddToFolderModal url={link.url} handleClickModal={handleClickModal} />
-      )}
+      {CARD_MODAL[currCardModal as keyof Modal]}
     </>
   );
 }

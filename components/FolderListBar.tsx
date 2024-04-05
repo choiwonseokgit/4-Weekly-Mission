@@ -45,6 +45,24 @@ function FolderListBar({ folderList, onClick }: Props) {
     setCurrOpenModal(value);
   };
 
+  const MODAL_MAP = {
+    add: <AddFolderModal handleModalClick={handleModalClick} />,
+    edit: <EditModal handleModalClick={handleModalClick} />,
+    deleteFolder: (
+      <DeleteFolderModal
+        folderName={currentFolderName}
+        handleModalClick={handleModalClick}
+      />
+    ),
+    share: (
+      <ShareModal
+        folderName={currentFolderName}
+        handleModalClick={handleModalClick}
+        makeShareLink={() => makeShareLink(currentUserId, currentFolderId)}
+      />
+    ),
+  };
+
   const makeShareLink = (userId: number | null, folderId: number) => {
     const url = `${window.location.origin}/shared?user=${userId}&folder=${folderId}`;
     copyClipBoard(url);
@@ -85,28 +103,7 @@ function FolderListBar({ folderList, onClick }: Props) {
           handleModalClick={handleModalClick}
         />
       </div>
-      {currOpenModal === "add" && (
-        <AddFolderModal handleModalClick={handleModalClick} />
-      )}
-
-      {currOpenModal === "edit" && (
-        <EditModal handleModalClick={handleModalClick} />
-      )}
-
-      {currOpenModal === "deleteFolder" && (
-        <DeleteFolderModal
-          folderName={currentFolderName}
-          handleModalClick={handleModalClick}
-        />
-      )}
-
-      {currOpenModal === "share" && (
-        <ShareModal
-          folderName={currentFolderName}
-          handleModalClick={handleModalClick}
-          makeShareLink={() => makeShareLink(currentUserId, currentFolderId)}
-        />
-      )}
+      {MODAL_MAP[currOpenModal as keyof Modal]}
     </>
   );
 }
