@@ -5,7 +5,11 @@ import { Modal } from "@/types/commonTypes";
 import AddToFolderModal from "./modal/AddToFolderModal";
 import styles from "./AddLinkBar.module.css";
 
-function AddLinkBar({ isAtBottom }: { isAtBottom: boolean }) {
+interface Props {
+  isAtBottom: boolean;
+}
+
+function AddLinkBar({ isAtBottom }: Props) {
   const [linkValue, setLinkValue] = useState<string>("");
   const [currCardModal, setCurrCardModal] = useState<Modal>(null);
 

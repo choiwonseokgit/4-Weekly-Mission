@@ -16,7 +16,11 @@ export async function getStaticProps() {
   };
 }
 
-function Shared({ links }: { links: Link[] }) {
+interface Props {
+  links: Link[];
+}
+
+function Shared({ links }: Props) {
   const [searchVal, handleChange, filterdData, handleClickClose] = useSearchBar(
     "",
     links

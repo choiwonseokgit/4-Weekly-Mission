@@ -1,10 +1,9 @@
 import Image from "next/image";
-import { ReactNode, MouseEvent } from "react";
+import React, { MouseEvent } from "react";
 import close from "@/public/close.svg";
 import styles from "./ModalLayout.module.css";
 
-interface Props {
-  children: ReactNode;
+interface Props extends React.PropsWithChildren {
   title: string;
   onClickCloseButton: (e: MouseEvent<HTMLDivElement>) => void;
 }
@@ -15,7 +14,7 @@ function ModalLayout({ children, title, onClickCloseButton }: Props) {
       <div className={styles.container}>
         <div className={styles.modalTitle}>{title}</div>
         <div className={styles.closeButton} onClick={onClickCloseButton}>
-          <Image src={close} alt="Icon-close" />
+          <Image src={close} alt="닫기" />
         </div>
         {children}
       </div>

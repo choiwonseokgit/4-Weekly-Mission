@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { MediaLink } from "../types/commonTypes";
 
-function Icon({ mediaType }: { mediaType: MediaLink }) {
+interface Props {
+  mediaType: MediaLink;
+}
+
+function Icon({ mediaType }: Props) {
   return (
     <a href={mediaType?.link}>
       <Image src={mediaType?.logo} alt={mediaType?.type} />

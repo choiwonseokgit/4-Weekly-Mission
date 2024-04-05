@@ -2,7 +2,11 @@ import { LinksData, Link } from "@/types/commonTypes";
 import Card from "./Card";
 import styles from "./CardBox.module.css";
 
-function CardBox({ linksData }: { linksData: LinksData[] | Link[] }) {
+interface Props {
+  linksData: LinksData[] | Link[];
+}
+
+function CardBox({ linksData }: Props) {
   return (
     <div className={styles.container}>
       {linksData.map((link) => (
