@@ -1,25 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
+import { useForm, FieldValues } from "react-hook-form";
 import Input from "@/components/Input";
 import { postLogin } from "@/lib/api";
-import { SOCIAL_LOGIN } from "@/lib/const";
+import { SOCIAL_LOGIN, LOGIN_FAIL_ERROR } from "@/lib/const";
 import google from "@/public/google.png";
 import kakao from "@/public/kakao.svg";
 import logo from "@/public/logo.svg";
 import styles from "@/styles/SignInPage.module.css";
-
-const LOGIN_FAIL_ERROR = {
-  email: {
-    type: "fail",
-    message: "이메일을 확인해주세요",
-  },
-  password: {
-    type: "fail",
-    message: "비밀번호를 확인해주세요",
-  },
-};
 
 function SignIn() {
   const {

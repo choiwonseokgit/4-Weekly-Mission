@@ -103,3 +103,14 @@ export const SOCIAL_LOGIN = {
   google: "https://www.google.com",
   kakao: "https://www.kakaocorp.com/page",
 };
+
+export const LOGIN_FAIL_ERROR = {
+  email: {
+    type: "fail",
+    message: "이메일을 확인해주세요",
+  },
+  password: {
+    type: "fail",
+    message: "비밀번호를 확인해주세요",
+  },
+};
