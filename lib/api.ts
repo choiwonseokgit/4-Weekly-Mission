@@ -12,6 +12,17 @@ const fetchToGetData = async (path: string): Promise<FetchResponse> => {
   return body;
 };
 
+const fetchPost = async (data: FieldValues, path: string) => {
+  const response = await fetch(path, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return response;
+};
+
 export const getData = async (path: string): Promise<FetchResponse> => {
   const detailPath = `${URL}/api/sample/${path}`;
   return fetchToGetData(detailPath);
@@ -32,18 +43,24 @@ export const getFolderLinksData = async (
 
 export const postLogin = async (data: FieldValues) => {
   const detailPath = `${URL}/api/sign-in`;
+  const response = await fetchPost(data, detailPath);
 
-  const response = await fetch(detailPath, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  const body = response.json();
+  return body;
+};
 
-  if (!response.ok) {
-    throw new Error("Failed to log in");
-  }
+export const postJoin = async (data: FieldValues) => {
+  const detailPath = `${URL}/api/sign-up`;
+  const response = await fetchPost(data, detailPath);
 
-  return response.json();
+  const body = response.json();
+  return body;
+};
+
+export const postEmailIsValid = async (data: FieldValues) => {
+  const detailPath = `${URL}/api/check-email`;
+  const response = await fetchPost(data, detailPath);
+  const body = response.json();
+
+  return body;
 };
