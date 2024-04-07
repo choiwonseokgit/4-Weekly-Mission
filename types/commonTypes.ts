@@ -74,3 +74,10 @@ export interface ShareModalButtonType {
   img: StaticImageData;
   onClick?: () => void;
 }
+
+export type InputType =
+  | "signInEmail"
+  | "signInPassword"
+  | "signUpEmail"
+  | "signUpPassword"
+  | "signUpPasswordCheck";
