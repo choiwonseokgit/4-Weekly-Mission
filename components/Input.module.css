@@ -1,16 +1,16 @@
 .container {
-  width: 350px;
+  width: 100%;
 }
 
 .innerContainer {
-  width: 350px;
+  width: 100%;
   position: relative;
 }
 
 .input {
   border: none;
   display: flex;
-  width: 350px;
+  width: 100%;
   padding: 18px 15px;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +36,7 @@
 }
 
 .errorMessage {
-  margin-top: 5px;
+  position: absolute;
+  margin-top: 3px;
   color: #ff5b56;
 }

@@ -1,3 +1,5 @@
+import { FieldValues } from "react-hook-form";
+
 const URL = "https://bootcamp-api.codeit.kr";
 
 interface FetchResponse {
@@ -26,4 +28,22 @@ export const getFolderLinksData = async (
   const path = `${URL}/api/users/4/links`;
   const detailPath = folderId === 1 ? path : `${path}?folderId=${folderId}`;
   return fetchToGetData(detailPath);
+};
+
+export const postLogin = async (data: FieldValues) => {
+  const detailPath = `${URL}/api/sign-in`;
+
+  const response = await fetch(detailPath, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to log in");
+  }
+
+  return response.json();
 };

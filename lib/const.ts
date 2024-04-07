@@ -98,3 +98,8 @@ export const MEDIA_LINK: MediaLink[] = [
     logo: instagramlogo,
   },
 ];
+
+export const SOCIAL_LOGIN = {
+  google: "https://www.google.com",
+  kakao: "https://www.kakaocorp.com/page",
+};
