@@ -45,9 +45,9 @@ function SignUp() {
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     if (accessToken) {
-      window.location.href = "/folder";
+      router.replace("/folder");
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className={styles.background}>
