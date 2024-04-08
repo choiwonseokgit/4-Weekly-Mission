@@ -36,8 +36,8 @@ const options = {
         try {
           const response = await postEmailIsValid({ email });
           return response && true;
-        } catch (err) {
-          return (err as Error).message;
+        } catch (errorMessage) {
+          return errorMessage;
         }
       },
     },

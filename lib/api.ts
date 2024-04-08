@@ -73,7 +73,7 @@ export const postEmailIsValid = async (data: FieldValues) => {
 
   if (!response.ok) {
     const errorBody = await response.json();
-    throw new Error(errorBody.error.message);
+    return Promise.reject(errorBody.error.message);
   }
 
   const body = await response.json();
