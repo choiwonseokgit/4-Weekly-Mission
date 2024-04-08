@@ -1,10 +1,10 @@
 .background {
   background: #f0f6ff;
   height: 100vh;
-  padding: 238px 0 253px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .form {
@@ -120,12 +120,8 @@
   border-radius: 50%;
 }
 
-@media (min-width: 375px) and (max-width: 767px) {
-  .background {
-    padding: 120px 0 233px;
-  }
-
-  .container {
+@media (max-width: 767px) {
+  .form {
     width: 325px;
   }
 }
