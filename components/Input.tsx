@@ -35,9 +35,9 @@ const options = {
       isValidEmail: async (email: FieldValues) => {
         try {
           const response = await postEmailIsValid({ email });
-          return response.error ? response.error.message : true;
+          return response && true;
         } catch (err) {
-          console.error(err);
+          return (err as Error).message;
         }
       },
     },

@@ -45,7 +45,12 @@ export const postLogin = async (data: FieldValues) => {
   const detailPath = `${URL}/api/sign-in`;
   const response = await fetchPost(data, detailPath);
 
-  const body = response.json();
+  if (!response.ok) {
+    const errorBody = await response.json();
+    throw new Error(errorBody.error.message || "error");
+  }
+
+  const body = await response.json();
   return body;
 };
 
@@ -53,14 +58,24 @@ export const postJoin = async (data: FieldValues) => {
   const detailPath = `${URL}/api/sign-up`;
   const response = await fetchPost(data, detailPath);
 
-  const body = response.json();
+  if (!response.ok) {
+    const errorBody = await response.json();
+    throw new Error(errorBody.error.message || "error");
+  }
+
+  const body = await response.json();
   return body;
 };
 
 export const postEmailIsValid = async (data: FieldValues) => {
   const detailPath = `${URL}/api/check-email`;
   const response = await fetchPost(data, detailPath);
-  const body = response.json();
 
+  if (!response.ok) {
+    const errorBody = await response.json();
+    throw new Error(errorBody.error.message);
+  }
+
+  const body = await response.json();
   return body;
 };
